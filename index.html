@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <title>Virtual Zoo AR</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/3.3.2/aframe/build/aframe-ar.min.js"></script>
   </head>
   <body style="margin: 0; overflow: hidden;">
-    <a-scene embedded arjs='sourceType: webcam;'>
+    <a-scene embedded arjs="sourceType: webcam;">
+      <!-- Marker -->
       <a-marker preset="hiro">
-        <a-box position="0 0.5 0" material="color: yellow;"></a-box>
+        <!-- Simple 3D box as fallback -->
+        <a-box position="0 0.5 0" color="#4CC3D9"></a-box>
+
+        <!-- 3D Animal Model -->
+        <a-entity 
+          gltf-model="assets/models/lion.glb" 
+          scale="0.5 0.5 0.5" 
+          position="0 0 0">
+        </a-entity>
       </a-marker>
+
+      <!-- Camera -->
       <a-entity camera></a-entity>
     </a-scene>
   </body>
